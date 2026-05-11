@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Box
+  - Slot
+  - Wall
+  - Floor
+  - Easy
+  - Normal
+  - Hard
+  - Stairs
+  - StairsUpper
+  - StairsLower
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Stairs
+  - Ground
+  - StairsUpper
+  - StairsLower
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 475565135
+    locked: 0
+  - name: Objects
+    uniqueID: 2006712747
+    locked: 0
+  - name: Tiles
+    uniqueID: 2772910081
+    locked: 0
+  - name: Tile Objects
+    uniqueID: 2108422091
+    locked: 0
+  - name: Player
+    uniqueID: 4263345583
+    locked: 0
+  m_RenderingLayers:
+  - Default

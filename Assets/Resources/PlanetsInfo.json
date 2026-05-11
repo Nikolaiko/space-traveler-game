@@ -1,0 +1,22 @@
+[
+  {
+    "planetType": "Blue",
+    "distance": 6,
+    "obstacles": 4
+  },
+  {
+    "planetType": "Red",
+    "distance": 7,
+    "obstacles": 5
+  },
+  {
+    "planetType": "Green",
+    "distance": 8,
+    "obstacles": 6
+  },
+  {
+    "planetType": "Purple",
+    "distance": 9,
+    "obstacles": 7
+  }
+]

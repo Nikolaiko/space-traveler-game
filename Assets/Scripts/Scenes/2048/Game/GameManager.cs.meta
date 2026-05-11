@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 14664cc41903e134aa356969a7a704df
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GO2: {fileID: 119896, guid: 77d3bad31bbc53e4a941d69276ea6867, type: 3}
+  - GO4: {fileID: 186294, guid: 1879e989c998bb449964868109da7b5b, type: 3}
+  - GO8: {fileID: 142812, guid: 6d0e4a411636cce438e6a120f016ef47, type: 3}
+  - GO16: {fileID: 162790, guid: 8d97bf09c63d88945ad74c3dd0035a5a, type: 3}
+  - GO32: {fileID: 162790, guid: b31fdbe2bbe6aaa40a075588b4f6d3ed, type: 3}
+  - GO64: {fileID: 162790, guid: 7bd67f6ba5808d044af045af4a3815a4, type: 3}
+  - GO128: {fileID: 162790, guid: 91f1d6d180cf9984680067345952a41e, type: 3}
+  - GO256: {fileID: 162790, guid: 26ecba8a07b557143a0e77ad4c5e18d7, type: 3}
+  - GO512: {fileID: 162790, guid: 903a91f87e4339f458fcbdb5c2e0b18b, type: 3}
+  - GO1024: {fileID: 162790, guid: b4cc4b84328033242997c237eac92454, type: 3}
+  - blankGO: {fileID: 117974, guid: 03ac7b7cc1562854c82845c874db2e3b, type: 3}
+  - ScoreText: {instanceID: 0}
+  - DebugText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
