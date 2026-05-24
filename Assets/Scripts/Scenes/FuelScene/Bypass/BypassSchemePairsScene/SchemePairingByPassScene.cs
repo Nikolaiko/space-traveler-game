@@ -55,9 +55,18 @@ public class SchemePairingByPassScene : MonoBehaviour
     }
 
     private void initGame() {
-        GameObject[] schemaObjects = GameObject.FindGameObjectsWithTag(GameObjectTags.EASY_TAG);
-        int schemaIndex = randomNumberGenerator.Next(0, schemaObjects.Length);
+        FuelStoreDoorType lastDoorType = parentScene == null ? FuelStoreDoorType.normal : parentScene.lastOpenedDoorType;
 
+        GameObject[] schemaObjects;
+        if (lastDoorType == FuelStoreDoorType.normal)
+        {
+            schemaObjects = GameObject.FindGameObjectsWithTag(GameObjectTags.EASY_TAG);  
+        } else
+        {
+            schemaObjects = GameObject.FindGameObjectsWithTag(GameObjectTags.NORMAL_TAG);
+        }
+
+        int schemaIndex = randomNumberGenerator.Next(0, schemaObjects.Length);
         BypassSchemeButtonsContainer container = schemaObjects[schemaIndex].GetComponent<BypassSchemeButtonsContainer>();
         levelButtons = container.buttons.ToList();
         
