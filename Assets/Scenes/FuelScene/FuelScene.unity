@@ -577,7 +577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499548210857090608, guid: 47be6cbf9c1c24d7288c74dfcc7d3766, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499548210857090608, guid: 47be6cbf9c1c24d7288c74dfcc7d3766, type: 3}
+      propertyPath: m_TagString
+      value: EasyDoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1223,7 +1227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499548210857090608, guid: 47be6cbf9c1c24d7288c74dfcc7d3766, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499548210857090608, guid: 47be6cbf9c1c24d7288c74dfcc7d3766, type: 3}
+      propertyPath: m_TagString
+      value: EasyDoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1244,19 +1252,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_TagString
-      value: Hard
+      value: NormalDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.67
+      value: 7.89
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.67
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1730,19 +1738,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_TagString
-      value: Hard
+      value: NormalDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.44
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.68
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3985,19 +3993,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_TagString
-      value: Hard
+      value: NormalDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.03
+      value: -14.89
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.68
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5194,19 +5202,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_TagString
-      value: Hard
+      value: NormalDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.59
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.67
+      value: -4.36
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5309,6 +5317,10 @@ PrefabInstance:
     - target: {fileID: 5499548210857090608, guid: 47be6cbf9c1c24d7288c74dfcc7d3766, type: 3}
       propertyPath: m_Name
       value: NormalFuelDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499548210857090608, guid: 47be6cbf9c1c24d7288c74dfcc7d3766, type: 3}
+      propertyPath: m_TagString
+      value: EasyDoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5426,11 +5438,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 506056811415254414, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_TagString
-      value: Hard
+      value: NormalDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1333573920800328535, guid: 6261aeda268164423958cfac46dc9fcc, type: 3}
       propertyPath: m_LocalPosition.x

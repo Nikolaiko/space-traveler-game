@@ -8,12 +8,13 @@ TagManager:
   - Slot
   - Wall
   - Floor
-  - Easy
-  - Normal
-  - Hard
   - Stairs
   - StairsUpper
   - StairsLower
+  - EasyPair
+  - NormalPair
+  - EasyDoor
+  - NormalDoor
   layers:
   - Default
   - TransparentFX

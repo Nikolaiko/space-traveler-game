@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 42858683}
   m_Layer: 5
   m_Name: easy_4
-  m_TagString: Easy
+  m_TagString: EasyPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 48064956}
   m_Layer: 5
   m_Name: normal_1
-  m_TagString: Normal
+  m_TagString: NormalPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 49315833}
   m_Layer: 5
   m_Name: normal_2
-  m_TagString: Normal
+  m_TagString: NormalPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2207,7 +2207,7 @@ GameObject:
   - component: {fileID: 420200669}
   m_Layer: 5
   m_Name: easy_2
-  m_TagString: Easy
+  m_TagString: EasyPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4114,7 +4114,7 @@ GameObject:
   - component: {fileID: 906451507}
   m_Layer: 5
   m_Name: normal_3
-  m_TagString: Normal
+  m_TagString: NormalPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4417,7 +4417,7 @@ GameObject:
   - component: {fileID: 991229243}
   m_Layer: 5
   m_Name: easy_5
-  m_TagString: Easy
+  m_TagString: EasyPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4680,8 +4680,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1146252274}
-  - {fileID: 468910296}
   - {fileID: 641032635}
+  - {fileID: 468910296}
   - {fileID: 1623796681}
   - {fileID: 1108276105}
   m_Father: {fileID: 0}
@@ -4703,6 +4703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c2a3f74d3f747bd805f9c4ca5d3adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalPairs: {fileID: 468910295}
+  hardPairs: {fileID: 641032634}
 --- !u!114 &1001556044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5385,7 +5387,7 @@ GameObject:
   - component: {fileID: 1120823070}
   m_Layer: 5
   m_Name: easy_1
-  m_TagString: Easy
+  m_TagString: EasyPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5638,7 +5640,7 @@ GameObject:
   - component: {fileID: 1161747045}
   m_Layer: 5
   m_Name: normal_4
-  m_TagString: Normal
+  m_TagString: NormalPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6026,7 +6028,7 @@ GameObject:
   - component: {fileID: 1295808115}
   m_Layer: 5
   m_Name: normal_5
-  m_TagString: Normal
+  m_TagString: NormalPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6866,7 +6868,7 @@ GameObject:
   - component: {fileID: 1423995094}
   m_Layer: 5
   m_Name: easy_3
-  m_TagString: Easy
+  m_TagString: EasyPair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10404,6 +10406,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 687539533301747957, guid: 6c8d1468ad4cc46f19fc7961fd025c70, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2168025245096679565, guid: 6c8d1468ad4cc46f19fc7961fd025c70, type: 3}
+      propertyPath: m_PreserveAspect
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3912663471288120109, guid: 6c8d1468ad4cc46f19fc7961fd025c70, type: 3}

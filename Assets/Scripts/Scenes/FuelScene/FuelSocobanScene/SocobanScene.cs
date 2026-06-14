@@ -38,7 +38,6 @@ public class SocobanScene : MonoBehaviour
             box.onBoxArrived += onBoxArrived;
         }
 
-
         if (!tipsManager.tipWasShown(GameTipType.socobanTip)) {
             socobanLevelUI.showTip(GameTipType.socobanTip);
         }        

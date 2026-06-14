@@ -154,6 +154,6 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
     }
 
     private bool haveDoorsLeft() {
-        return GetComponentsInChildren<FuelStoreDoor>().Length > 0;
+        return FindObjectsByType<FuelStoreDoor>(FindObjectsSortMode.None).Length > 0;
     }
 }

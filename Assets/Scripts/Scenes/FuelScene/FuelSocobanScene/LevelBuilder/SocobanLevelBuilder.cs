@@ -23,7 +23,7 @@ public class SocobanLevelBuilder : MonoBehaviour
         switch (doorType) {
             case FuelStoreDoorType.normal: {
                 List<SocobanLevel> arr = FindFirstObjectByType<SocobanLevelManager>().easyLevels;
-                int rnd = random.Next(0, arr.Count);
+                int rnd = random.Next(0, arr.Count);                
                 level = arr[rnd];
                 break;
             }

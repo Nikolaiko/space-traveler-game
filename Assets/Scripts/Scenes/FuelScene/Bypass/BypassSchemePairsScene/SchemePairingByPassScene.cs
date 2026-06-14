@@ -7,7 +7,8 @@ using Zenject;
 
 public class SchemePairingByPassScene : MonoBehaviour
 {
-    private static float totalSeconds = 60.0f;
+    private static float EASY_TOTAL_SECONDS = 60.0f;
+    private static float NORMAL_TOTAL_SECONDS = 60.0f;
 
     [Inject]
     private BypassSchemeSidePanel sidePanel;
@@ -26,6 +27,9 @@ public class SchemePairingByPassScene : MonoBehaviour
     private BypassSchemePairsButton previousButton;
     private Dictionary<BypassButtonState, bool> schemaState;
     private List<BypassSchemePairsButton> levelButtons;
+
+    public GameObject normalPairs;
+    public GameObject hardPairs;
 
     public void Start() {
         sceneUI.onTipScreenClosed += onTipClosed;
@@ -60,10 +64,12 @@ public class SchemePairingByPassScene : MonoBehaviour
         GameObject[] schemaObjects;
         if (lastDoorType == FuelStoreDoorType.normal)
         {
-            schemaObjects = GameObject.FindGameObjectsWithTag(GameObjectTags.EASY_TAG);  
+            schemaObjects = GameObject.FindGameObjectsWithTag(GameObjectTags.EASY_PAIR_TAG);
+            hardPairs.SetActive(false);
         } else
         {
-            schemaObjects = GameObject.FindGameObjectsWithTag(GameObjectTags.NORMAL_TAG);
+            schemaObjects = GameObject.FindGameObjectsWithTag(GameObjectTags.NORMAL_PAIR_TAG);
+            normalPairs.SetActive(false);
         }
 
         int schemaIndex = randomNumberGenerator.Next(0, schemaObjects.Length);
@@ -99,7 +105,7 @@ public class SchemePairingByPassScene : MonoBehaviour
             button.clickAction = onButtonClick;            
         });
 
-        timeLeft = totalSeconds;
+        timeLeft = lastDoorType == FuelStoreDoorType.normal ? EASY_TOTAL_SECONDS : NORMAL_TOTAL_SECONDS;
     }
 
     private void startGame() {

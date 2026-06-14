@@ -103,13 +103,21 @@ public class FuelSceneCharacterController : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.tag == "Normal")
+        if (collider.tag == GameObjectTags.EASY_DOOR_TAG)
         {
             GameObject triggeredObject = collider.gameObject;
             FuelStoreDoor door = triggeredObject.GetComponent<FuelStoreDoor>();
             if (door != null) {
                 collidedDoor = door;
-            }    
+            }
+        }
+        if (collider.tag == GameObjectTags.NORMAL_DOOR_TAG)
+        {
+            GameObject triggeredObject = collider.gameObject;
+            FuelStoreDoor door = triggeredObject.GetComponent<FuelStoreDoor>();
+            if (door != null) {
+                collidedDoor = door;
+            }
         }
         if (collider.tag == "StairsLower") {            
             isOnLowerStairs = true;
@@ -122,7 +130,7 @@ public class FuelSceneCharacterController : MonoBehaviour
     }
 
     public void OnTriggerExit2D(Collider2D collider) { 
-        if (collider.tag == "Normal")
+        if (collider.tag == GameObjectTags.EASY_DOOR_TAG || collider.tag == GameObjectTags.NORMAL_DOOR_TAG)
         {
             GameObject triggeredObject = collider.gameObject;        
             FuelStoreDoor door = triggeredObject.GetComponent<FuelStoreDoor>();
