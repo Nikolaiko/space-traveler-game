@@ -11,7 +11,10 @@ public class SimpleSoundService : MonoBehaviour, SoundService
 
     public void playMusic()
     {
-        musicSource.Play();
+        if (!musicSource.isPlaying)
+        {
+            musicSource.Play();    
+        }
     }
 
     public void stopMusic()

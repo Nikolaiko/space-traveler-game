@@ -37,6 +37,6 @@ public class ProjectDIInstaller : MonoInstaller
         Container
             .Bind<SoundService>()
             .FromComponentInNewPrefabResource("Prefabs/SoundService")
-            .AsTransient();
+            .AsSingle();
     }
 }

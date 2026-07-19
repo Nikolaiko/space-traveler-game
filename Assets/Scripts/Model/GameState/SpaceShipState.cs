@@ -63,10 +63,9 @@ public struct SpaceShipState
         return fuelCollected >= fuelNeeded ? CollectionState.collected : CollectionState.inProgress;
     }
 
-    public bool readyToFly() {
-        return true;
-        // return foodCollectionState() == CollectionState.collected
-        //         && fuelCollectionState() == CollectionState.collected;
+    public bool readyToFly() {        
+        return foodCollectionState() == CollectionState.collected
+            && fuelCollectionState() == CollectionState.collected;
     }
 
     public readonly int? armorNeeded;

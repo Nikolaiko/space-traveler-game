@@ -29,6 +29,7 @@ public class GameProgressUI : MonoBehaviour
     public Button fuelButton;
     public Button foodButton;
     public Button launchButton;
+    public Button shipParametersButton;
     public GameObject mainUI;
 
     public CheckBox foodCheckBox;
@@ -92,6 +93,14 @@ public class GameProgressUI : MonoBehaviour
 
     public void enableLaunchButton() {
         launchButton.interactable = true;
+    }
+
+    public void disbaleShipParameterButton() {
+        shipParametersButton.interactable = false;
+    }
+
+    public void enableShipParameterButton() {
+        shipParametersButton.interactable = true;
     }
 
     public void setFoodState(CollectionState state) {

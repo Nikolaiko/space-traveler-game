@@ -152,6 +152,14 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
             } else {
                 gameProgressUI.disbaleLaunchButton();
             }
+
+            if (needCollectFood)
+            {
+                gameProgressUI.disbaleShipParameterButton();
+            } else
+            {
+                gameProgressUI.enableShipParameterButton();
+            }
         }
     }
 }

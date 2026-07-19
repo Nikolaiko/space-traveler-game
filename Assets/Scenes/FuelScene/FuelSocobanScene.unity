@@ -4215,8 +4215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   easyFileName: EasyLevels
+  normalFileName: NormalLevels
   hardFileName: HardLevels
   easyLevels: []
+  normalLevels: []
   hardLevels: []
 --- !u!4 &1288301528
 Transform:
