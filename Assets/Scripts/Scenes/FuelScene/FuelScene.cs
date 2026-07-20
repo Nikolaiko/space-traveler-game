@@ -87,7 +87,7 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
         lastOpenedDoor.destroyDoor();
         lastOpenedDoor = null;
 
-        if (!haveDoorsLeft()) {
+        if (!haveDoorsLeft() || totalFuel >= fuelNeeded) {
             finishLevel();
         }
     }

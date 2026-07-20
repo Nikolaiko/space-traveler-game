@@ -28,7 +28,7 @@ public class SocobanLevelBuilder : MonoBehaviour
                 break;
             }
             case FuelStoreDoorType.hard: {
-                List<SocobanLevel> arr = FindFirstObjectByType<SocobanLevelManager>().hardLevels;
+                List<SocobanLevel> arr = FindFirstObjectByType<SocobanLevelManager>().normalLevels;
                 int rnd = random.Next(0, arr.Count);
                 level = arr[rnd];                
                 break;
@@ -38,16 +38,16 @@ public class SocobanLevelBuilder : MonoBehaviour
         int startX = -level.Width / 2;
         int x = startX;
 
-        int y = -level.Height / 2;
+        int y = level.Height / 2;
         foreach (var row in level._rows) {
-            foreach (var ch in row) {                
+            foreach (var ch in row) {
                 GameObject prefab = getPrefab(ch);
                 if (prefab) {
                     Instantiate(prefab, new Vector3(x, y, 0), Quaternion.identity);
                 }
                 x++;
             }
-            y++;
+            y--;
             x = startX;
         }
     }
