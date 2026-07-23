@@ -29,6 +29,7 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
         gameProgressUI.onTipScreenClosed = onTipScreenClose;
         gameProgressUI.onFuelButtonTap = startCollectingFuel;
         gameProgressUI.onShipParameterClose = checkScreenState;
+        gameProgressUI.onShipParameterUpdateValue = checkScreenState;
         gameProgressUI.onFoodButtonTap = startCollectingFood;
         gameProgressUI.onLaunchButtonTap = tryToLaunch;
         
@@ -127,9 +128,7 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
 
     private void setComponentValuesFromState(SpaceShipState state) {        
         gameProgressUI.setFoodState(state.foodCollectionState());
-        gameProgressUI.setFoodWeight(state.foodWeight);
-
-        gameProgressUI.setFuelState(state.fuelCollectionState());
+        gameProgressUI.setFoodWeight(state.foodWeight);        
     }
 
     private void setDefaultComponentValues() {
@@ -143,9 +142,12 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
         SpaceShipState? state = localDataManager.getSavedState();
         if (state.HasValue) {
             bool needCollectFood = state.Value.foodCollectionState() == CollectionState.inProgress;
+            bool needCollectFuel = state.Value.fuelNeeded.HasValue && state.Value.fuelCollectionState() == CollectionState.inProgress;
 
-            gameProgressUI.setFuelQuestButtonEnabled(state.Value.fuelNeeded.HasValue);
+            gameProgressUI.setFuelQuestButtonEnabled(needCollectFuel);
             gameProgressUI.setFoodQuestButtonEnabled(needCollectFood);
+
+            gameProgressUI.setFuelState(state.Value.fuelCollectionState());
 
             if (state.Value.readyToFly()) {                
                 gameProgressUI.enableLaunchButton();

@@ -17,10 +17,11 @@ public class CalculateScreenUI : MonoBehaviour
     public TMP_Text distanceText;
     public TMP_Text obstaclesText;
     public TMP_Text foodStatusText;
+    public TMP_Text fuelStatusText;
     public TMP_InputField fuelValue;
     public Button saveEnteredValueButton;
-    
     public Action onParametersScreenClosed;
+    public Action onParametersScreenUpdateValue;
 
     private SpaceShipState screenState;
 
@@ -50,8 +51,17 @@ public class CalculateScreenUI : MonoBehaviour
             } else
             {
                 foodStatusText.color = Color.red;
+            }
+
+            if (screenState.fuelCollected >= screenState.fuelNeeded)
+            {
+                fuelStatusText.color = Color.green;
+            } else
+            {
+                fuelStatusText.color = Color.red;
             }   
             
+            fuelStatusText.text = $"Топлива собрано: {screenState.fuelCollected}";
             foodStatusText.text = $"Еды собрано: {screenState.foodCollected}, вес: {screenState.foodWeight}";
             if (screenState.fuelNeeded.HasValue) {
                 fuelValue.text = screenState.fuelNeeded.Value.ToString();
@@ -94,7 +104,17 @@ public class CalculateScreenUI : MonoBehaviour
         if (int.TryParse(fuelValue.text, out prasedValue)) {
             finalValue = prasedValue;
         }
-        localDataManager.saveGameState(screenState.copy(fuelNeeded: finalValue));        
+
+        localDataManager.saveGameState(screenState.copy(fuelNeeded: finalValue));
+        onParametersScreenUpdateValue?.Invoke();
+
+        screenState = screenState.copy(fuelNeeded: finalValue);
+
+        if (screenState.fuelCollected >= screenState.fuelNeeded) {
+            fuelStatusText.color = Color.green;
+        } else {
+            fuelStatusText.color = Color.red;
+        }
     }
 
     public void fuelValueChanged(String newValue) {
