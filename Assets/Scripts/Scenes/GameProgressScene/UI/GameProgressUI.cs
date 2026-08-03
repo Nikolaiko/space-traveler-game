@@ -32,6 +32,7 @@ public class GameProgressUI : MonoBehaviour
     public Button launchButton;
     public Button shipParametersButton;
     public GameObject mainUI;
+    public GameObject optionsMenu;
 
     public CheckBox foodCheckBox;
     public CheckBox fuelCheckBox;
@@ -67,6 +68,10 @@ public class GameProgressUI : MonoBehaviour
 
     public void fuelButtonClick() {
         onFuelButtonTap?.Invoke();
+    }
+
+    public void menuButtonClick() {
+        optionsMenu.SetActive(true);
     }
 
     public void launchButtonClick() {

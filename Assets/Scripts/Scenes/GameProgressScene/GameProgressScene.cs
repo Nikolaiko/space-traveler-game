@@ -84,10 +84,6 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
         }        
     }
 
-    public void quitGame() {
-        sceneLoader.loadScene(OlgaSceneNumbers.MAIN_SCENE_ID);
-    }
-
     public void onShipParameterClick() {
         SpaceShipState? shipState = localDataManager.getSavedState();
         if (shipState.HasValue) {
