@@ -30,7 +30,10 @@ public class MainScene : MonoBehaviour
         gameArtType = localDataManager.getArtType();
         mainSceneUI.setToggleValue(gameArtType == GameArtType.olgaArt);
 
-        soundService.playMusic();
+        UserSettings settings = localDataManager.getUserSettings();
+        if (settings.musicOn) {
+            soundService.playMusic();    
+        }        
     }
 
     private void exitGame()

@@ -7,6 +7,7 @@ public class UserPrefsManager : LocalDataManager
     private static string gameStateKeyName = "space_quest_state";
     private static string tipsStateKeyName = "space_quest_tips";
     private static string artTypeKeyName = "art_type";
+    private static string userSettingsKeyName = "user_settings";
 
     public GameArtType getArtType() {
         string json = PlayerPrefs.GetString(artTypeKeyName);
@@ -68,6 +69,29 @@ public class UserPrefsManager : LocalDataManager
         finally { saveUserTipsState(state); }
         return state;
     }
+
+    public UserSettings getUserSettings() {
+        string json = PlayerPrefs.GetString(userSettingsKeyName);
+        UserSettings state = new UserSettings();
+
+        try {
+            state = JsonConvert.DeserializeObject<UserSettings>(json);
+        } catch (ArgumentException) {
+            Debug.Log("ArgumentException exception");            
+        } catch (NullReferenceException) {
+            Debug.Log("NullReferenceException exception");            
+        } catch (JsonSerializationException) {
+            Debug.Log("JsonSerializationException exception");            
+        }
+        finally { saveUserSettings(state); }
+        return state;
+    }
+
+    public void saveUserSettings(UserSettings userSettings) {
+        string json = JsonConvert.SerializeObject(userSettings);
+        PlayerPrefs.SetString(userSettingsKeyName, json);
+    }
+    
 
     public void saveGameArtType(GameArtType gameArtType) {
         string json = gameArtType.ToString();
