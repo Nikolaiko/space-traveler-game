@@ -23,6 +23,7 @@ public class SchemePairingByPassScene : MonoBehaviour
     private FuelScene parentScene;
     private float timeLeft = 0;
     private bool gameStarted = false;
+    private bool resultReported = false;
     private BypassButtonState? previousState;
     private BypassSchemePairsButton previousButton;
     private Dictionary<BypassButtonState, bool> schemaState;
@@ -49,13 +50,14 @@ public class SchemePairingByPassScene : MonoBehaviour
 
         timeLeft -= Time.deltaTime;
         if (timeLeft <= 0) {
-            parentScene.onResult(false);
+            reportResult(false);
+            return;
         }
         sidePanel.setTimerLeft(timeLeft);
     }
 
     public void onCancelBypass() {
-        parentScene.onResult(false);
+        reportResult(false);
     }
 
     private void initGame() {
@@ -129,7 +131,7 @@ public class SchemePairingByPassScene : MonoBehaviour
 
             sidePanel.unlockPair(button.buttonState);            
             if (sidePanel.allPairsUnlocked()) {
-                parentScene.onResult(true);
+                reportResult(true);
             }            
         } else {
             previousButton.closeButton();
@@ -138,6 +140,15 @@ public class SchemePairingByPassScene : MonoBehaviour
 
             button.blink();
         }                
+    }
+
+    // Сцена выгружается асинхронно несколько кадров — результат сообщаем один раз и останавливаем таймер
+    private void reportResult(bool success) {
+        if (resultReported) { return; }
+        resultReported = true;
+        gameStarted = false;
+
+        parentScene.onResult(success);
     }
 
     private void onTipClosed(GameTipType tipType) {
