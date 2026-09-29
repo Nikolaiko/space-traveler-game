@@ -25,9 +25,18 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
     private int totalFuel = 0;
     private int fuelNeeded = 0;
     private FuelStoreDoor lastOpenedDoor;
+    private bool levelFinished = false;
 
     public void Start() {
-        fuelNeeded = localDataManager.getSavedState().Value.fuelNeeded ?? 0;
+        SpaceShipState? shipState = localDataManager.getSavedState();
+        if (!shipState.HasValue || !shipState.Value.fuelNeeded.HasValue) {
+            Debug.LogWarning("FuelScene: no saved fuel goal, returning to game progress");
+            levelFinished = true;
+            fuelGameEnded();
+            return;
+        }
+
+        fuelNeeded = shipState.Value.fuelNeeded.Value;
         sceneUI.updateNeededFuel(fuelNeeded);
         sceneUI.onTipScreenClosed = onTipClosed;
         sceneUI.onWinScreenClose = fuelGameEnded;
@@ -41,6 +50,8 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
     }
 
     public void Update() {
+        if (levelFinished) { return; }
+
         timeLeft -= Time.deltaTime;
 
         if (timeLeft <= 0.0) {
@@ -132,6 +143,9 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
     }
 
     private void finishLevel() {
+        if (levelFinished) { return; }
+        levelFinished = true;
+
         if (totalFuel >= fuelNeeded)
         {
             SpaceShipState? shipState = localDataManager.getSavedState();
