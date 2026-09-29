@@ -19,6 +19,7 @@ public class SocobanScene : MonoBehaviour
     private SocobanPlayer player;
     private SocobanBox[] boxes = Array.Empty<SocobanBox>();
     private bool readyForInput;
+    private bool levelFinished = false;
 
     public void Start() {
         socobanLevelUI.onTipScreenClosed += onTipClosed;
@@ -44,6 +45,9 @@ public class SocobanScene : MonoBehaviour
     }
 
     public void Update() {
+        // Сцена выгружается асинхронно несколько кадров — результат начисляем один раз
+        if (levelFinished) { return; }
+
         Vector2 movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementInput.Normalize();
 
@@ -56,6 +60,7 @@ public class SocobanScene : MonoBehaviour
                     fuelScene.addCollectedFuel(value);
                 }
                 onExitDoor();
+                return;
             }
             
             
@@ -73,7 +78,10 @@ public class SocobanScene : MonoBehaviour
         }
     }
 
-    public void onExitDoor() {       
+    public void onExitDoor() {
+        if (levelFinished) { return; }
+        levelFinished = true;
+
         fuelScene.destroyLastCollidedDoor();
     }
 
