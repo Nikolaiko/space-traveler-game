@@ -28,7 +28,7 @@ public class GameOptionsScreen : MonoBehaviour
 
     public void onGotoMainMenuClick()
     {
-        sceneLoader.loadScene(OlgaSceneNumbers.MAIN_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.main);
     }
 
     public void onCloseButtonClick()

@@ -1,11 +1,11 @@
 using Zenject;
 
-public class OlgaSelectPlanetDIContext : MonoInstaller
+public class SelectPlanetDIContext : MonoInstaller
 {
     public override void InstallBindings() {
         Container            
             .Bind<SelectPlanetSceneUI>()
-            .To<OlgaSelectPlanetUI>()
+            .To<SelectPlanetUI>()
             .FromComponentInHierarchy()
             .AsTransient();
 

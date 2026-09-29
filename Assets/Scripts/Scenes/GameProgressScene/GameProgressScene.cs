@@ -57,11 +57,11 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
     }
 
     public void startCollectingFood() {
-        goToScene(OlgaSceneNumbers.SCENE_2048_ID);
+        goToScene(GameSceneType.food);
     }
 
     public void startCollectingFuel() {
-        sceneLoader.loadScene(OlgaSceneNumbers.FUEL_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.fuel);
     }
 
     public void tryToLaunch() {
@@ -70,9 +70,9 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
             try {
                 int fuelNeeded = shipState.Value.fuelNeeded ?? int.MaxValue;
                 if (fuelNeeded <= shipState.Value.fuelCollected) {                    
-                    sceneLoader.loadScene(OlgaSceneNumbers.SUCCESS_SCENE_ID);
+                    sceneLoader.loadScene(GameSceneType.success);
                 } else {
-                    sceneLoader.loadScene(OlgaSceneNumbers.FAIL_SCENE_ID);
+                    sceneLoader.loadScene(GameSceneType.fail);
                 }
             } catch (ArgumentNullException argumentException) {
                 Debug.LogException(argumentException);
@@ -98,11 +98,11 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
         
         switch (tipType) {
             case GameTipType.foodCollectionTip: {
-                goToScene(OlgaSceneNumbers.SCENE_2048_ID);
+                goToScene(GameSceneType.food);
                 break;
             }
             case GameTipType.fuelCollectionTip: {
-                goToScene(OlgaSceneNumbers.FUEL_SCENE_ID);
+                goToScene(GameSceneType.fuel);
                 break;
             }
             case GameTipType.armorCollectionTip: {                
@@ -118,8 +118,8 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
 
     #endregion
 
-    private void goToScene(int sceneId) {
-        sceneLoader.loadScene(sceneId);
+    private void goToScene(GameSceneType sceneType) {
+        sceneLoader.loadScene(sceneType);
     }
 
     private void setComponentValuesFromState(SpaceShipState state) {        

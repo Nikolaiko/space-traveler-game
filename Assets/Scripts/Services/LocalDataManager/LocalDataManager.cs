@@ -7,9 +7,6 @@ public interface LocalDataManager
     UserTipsState getUserTipsState();
     void saveUserTipsState(UserTipsState userTips);
 
-    GameArtType getArtType();
-    void saveGameArtType(GameArtType gameArtType);
-
     void saveUserSettings(UserSettings userSettings);
     UserSettings getUserSettings();
 }

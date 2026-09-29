@@ -1,21 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OlgaSelectPlanetUI : MonoBehaviour, SelectPlanetSceneUI
+public class SelectPlanetUI : MonoBehaviour, SelectPlanetSceneUI
 {
     public event SelectPlanetSceneUI.PlanetSelectDelegate onPlanetSelect;
     public event SelectPlanetSceneUI.StartButtonClickDelegate onStartButtonClick;
 
-    public OlgaPlanetDescriptionUI planetDescriptionUI;
+    public PlanetDescriptionUI planetDescriptionUI;
 
-    public OlgaPlanetObjectUI redPlanet;
-    public OlgaPlanetObjectUI bluePlanet;
-    public OlgaPlanetObjectUI greenPlanet;
-    public OlgaPlanetObjectUI purplePlanet;
+    public PlanetObjectUI redPlanet;
+    public PlanetObjectUI bluePlanet;
+    public PlanetObjectUI greenPlanet;
+    public PlanetObjectUI purplePlanet;
 
     public Button startButton;
 
-    private OlgaPlanetObjectUI selectedPlanet;
+    private PlanetObjectUI selectedPlanet;
 
     public void Start()
     {

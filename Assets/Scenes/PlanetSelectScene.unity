@@ -1015,7 +1015,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 939259312}
-        m_TargetAssemblyTypeName: OlgaSelectPlanetUI, Assembly-CSharp
+        m_TargetAssemblyTypeName: SelectPlanetUI, Assembly-CSharp
         m_MethodName: onButtonClick
         m_Mode: 1
         m_Arguments:

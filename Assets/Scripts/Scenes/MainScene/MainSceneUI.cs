@@ -6,6 +6,4 @@ interface MainSceneUI
     void setStartGameFunction(Action action);
     void setResumeGameFunction(Action action);
     void enableResumeButton(bool enable);
-    void setToggleValue(bool enable);
-    void setOnToggleValueChange(Action<bool> action);
 }

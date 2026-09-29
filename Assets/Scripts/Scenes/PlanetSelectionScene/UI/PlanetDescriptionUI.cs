@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OlgaPlanetDescriptionUI : MonoBehaviour
+public class PlanetDescriptionUI : MonoBehaviour
 {
     public Image bluePlanetDesc;
     public Image redPlanetDesc;
@@ -28,7 +28,6 @@ public class OlgaPlanetDescriptionUI : MonoBehaviour
         }
 
         selectedImage = planetDescriptions[planetType];
-        print(selectedImage);
         selectedImage.gameObject.SetActive(true);
     }
 }

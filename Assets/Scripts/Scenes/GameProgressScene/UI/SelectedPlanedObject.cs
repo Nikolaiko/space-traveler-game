@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SelectedPlanedObject : MonoBehaviour
 {
-    public OlgaPlanetObjectUI redPlanet;
-    public OlgaPlanetObjectUI greenPlanet;
-    public OlgaPlanetObjectUI bluePlanet;
-    public OlgaPlanetObjectUI purplePlanet;
+    public PlanetObjectUI redPlanet;
+    public PlanetObjectUI greenPlanet;
+    public PlanetObjectUI bluePlanet;
+    public PlanetObjectUI purplePlanet;
 
     public void setSelectedPlanet(DestinationPlanetType planetType)
     {
