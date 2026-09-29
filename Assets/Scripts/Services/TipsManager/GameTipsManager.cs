@@ -2,7 +2,7 @@ public class GameTipsManager : TipsManager
 {
     private LocalDataManager dataManager;
 
-    GameTipsManager(LocalDataManager dataManager) {
+    public GameTipsManager(LocalDataManager dataManager) {
         this.dataManager = dataManager;
     }
 
