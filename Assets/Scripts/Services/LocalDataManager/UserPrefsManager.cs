@@ -10,101 +10,64 @@ public class UserPrefsManager : LocalDataManager
     private static string userSettingsKeyName = "user_settings";
 
     public GameArtType getArtType() {
-        string json = PlayerPrefs.GetString(artTypeKeyName);
-        GameArtType loadedArtType = GameArtType.olgaArt;
-
-        try
-        {
-            loadedArtType = (GameArtType)Enum.Parse(typeof(GameArtType), json);
+        if (PlayerPrefs.HasKey(artTypeKeyName)
+            && Enum.TryParse(PlayerPrefs.GetString(artTypeKeyName), out GameArtType artType)) {
+            return artType;
         }
-        catch (ArgumentException exception)
-        {
-            Debug.Log(exception);
-        }
-        catch (FormatException exception)
-        {
-            Debug.LogException(exception);
-        }
-        catch (InvalidOperationException exception)
-        {
-            Debug.LogException(exception);
-        }
-        return loadedArtType;
+        return GameArtType.olgaArt;
     }
 
     public SpaceShipState? getSavedState() {
-        string json = PlayerPrefs.GetString(gameStateKeyName);
-        SpaceShipState? state;
-
-        try {
-            state = JsonConvert.DeserializeObject<SpaceShipState>(json);
-        } catch (ArgumentException) {
-            state = null;
-        } catch (NullReferenceException) {
-            state = null;
-        } catch (JsonSerializationException) {
-            state = null;
-        }
-        return state;
+        return loadJson<SpaceShipState>(gameStateKeyName);
     }
 
     public void deleteSavedState()
     {
         PlayerPrefs.DeleteKey(gameStateKeyName);
+        PlayerPrefs.Save();
     }
 
     public UserTipsState getUserTipsState() {
-        string json = PlayerPrefs.GetString(tipsStateKeyName);
-        UserTipsState state = new UserTipsState();
-
-        try {
-            state = JsonConvert.DeserializeObject<UserTipsState>(json);
-        } catch (ArgumentException) {
-            Debug.Log("ArgumentException exception");            
-        } catch (NullReferenceException) {
-            Debug.Log("NullReferenceException exception");            
-        } catch (JsonSerializationException) {
-            Debug.Log("JsonSerializationException exception");            
-        }
-        finally { saveUserTipsState(state); }
-        return state;
+        return loadJson<UserTipsState>(tipsStateKeyName) ?? new UserTipsState();
     }
 
     public UserSettings getUserSettings() {
-        string json = PlayerPrefs.GetString(userSettingsKeyName);
-        UserSettings state = new UserSettings();
-
-        try {
-            state = JsonConvert.DeserializeObject<UserSettings>(json);
-        } catch (ArgumentException) {
-            Debug.Log("ArgumentException exception");            
-        } catch (NullReferenceException) {
-            Debug.Log("NullReferenceException exception");            
-        } catch (JsonSerializationException) {
-            Debug.Log("JsonSerializationException exception");            
-        }
-        finally { saveUserSettings(state); }
-        return state;
+        return loadJson<UserSettings>(userSettingsKeyName) ?? new UserSettings();
     }
 
     public void saveUserSettings(UserSettings userSettings) {
-        string json = JsonConvert.SerializeObject(userSettings);
-        PlayerPrefs.SetString(userSettingsKeyName, json);
+        saveJson(userSettingsKeyName, userSettings);
     }
-    
 
     public void saveGameArtType(GameArtType gameArtType) {
-        string json = gameArtType.ToString();
-        PlayerPrefs.SetString(artTypeKeyName, json);
+        PlayerPrefs.SetString(artTypeKeyName, gameArtType.ToString());
+        PlayerPrefs.Save();
     }
 
-    public void saveGameState(SpaceShipState state) {        
-        string json = JsonConvert.SerializeObject(state);
-        PlayerPrefs.SetString(gameStateKeyName, json);
+    public void saveGameState(SpaceShipState state) {
+        saveJson(gameStateKeyName, state);
     }
 
     public void saveUserTipsState(UserTipsState userTips) {
-        string json = JsonConvert.SerializeObject(userTips);  
-        PlayerPrefs.SetString(tipsStateKeyName, json);
+        saveJson(tipsStateKeyName, userTips);
+    }
+
+    private T? loadJson<T>(string keyName) where T : struct {
+        if (!PlayerPrefs.HasKey(keyName)) {
+            return null;
+        }
+
+        try {
+            return JsonConvert.DeserializeObject<T?>(PlayerPrefs.GetString(keyName));
+        } catch (JsonException exception) {
+            Debug.LogException(exception);
+            return null;
+        }
+    }
+
+    // PlayerPrefs пишет на диск только при штатном выходе, поэтому сохраняем сразу
+    private void saveJson(string keyName, object value) {
+        PlayerPrefs.SetString(keyName, JsonConvert.SerializeObject(value));
+        PlayerPrefs.Save();
     }
 }
