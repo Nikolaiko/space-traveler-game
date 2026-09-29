@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class OlgaPlanetObjectUI : MonoBehaviour, IPointerClickHandler
+public class PlanetObjectUI : MonoBehaviour, IPointerClickHandler
 {
     private static Vector3 normalScale = new Vector3(1.0f, 1.0f, 1.0f);
     private static Vector3 selectedScale = new Vector3(1.3f, 1.3f, 1.0f);

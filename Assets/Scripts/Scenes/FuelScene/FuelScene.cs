@@ -67,18 +67,18 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
     }
 
     public void destroyLastCollidedDoor() {
-        sceneLoader.unloadScene(OlgaSceneNumbers.FUEL_SOCOBAN_SCENE_ID, onRegularSocobanUnload, this);
+        sceneLoader.unloadScene(SceneNumbers.FUEL_SOCOBAN_SCENE_ID, onRegularSocobanUnload, this);
     }
 
     #region BypassResultListener
 
     public void onResult(bool success) {
         if (success) {
-            sceneLoader.unloadScene(OlgaSceneNumbers.BYPASS_SCHEME_PAIRS_SCENE_ID,
+            sceneLoader.unloadScene(SceneNumbers.BYPASS_SCHEME_PAIRS_SCENE_ID,
                                 onSuccessBypassUnloaded,
                                 this);
         } else {
-            sceneLoader.unloadScene(OlgaSceneNumbers.BYPASS_SCHEME_PAIRS_SCENE_ID,
+            sceneLoader.unloadScene(SceneNumbers.BYPASS_SCHEME_PAIRS_SCENE_ID,
                                 onRegularSocobanUnload,
                                 this);
         }
@@ -104,14 +104,14 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
     }
 
     private void onSuccessBypassUnloaded() {
-        sceneLoader.loadSceneAsyncAdditive(OlgaSceneNumbers.FUEL_SOCOBAN_SCENE_ID, onSocobanLoaded, this); 
+        sceneLoader.loadSceneAsyncAdditive(SceneNumbers.FUEL_SOCOBAN_SCENE_ID, onSocobanLoaded, this); 
     }
 
     private void onDoorOpen(FuelStoreDoor door) {
         lastOpenedDoor = door;
         lastOpenedDoorType = door.doorType;
 
-        sceneLoader.loadSceneAsyncAdditive(OlgaSceneNumbers.BYPASS_SCHEME_PAIRS_SCENE_ID, onBypassLoaded, this);
+        sceneLoader.loadSceneAsyncAdditive(SceneNumbers.BYPASS_SCHEME_PAIRS_SCENE_ID, onBypassLoaded, this);
     }
 
     private void onBypassLoaded() {
@@ -164,7 +164,7 @@ public class FuelScene : MonoBehaviour, CoroutineScope, BypassResultListener
 
     private void fuelGameEnded()
     {
-        sceneLoader.loadScene(OlgaSceneNumbers.GAME_PROGRESS_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.gameProgress);
     }
 
     private bool haveDoorsLeft() {

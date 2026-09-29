@@ -20,6 +20,6 @@ public class FailAnimation : MonoBehaviour
     private void endScene()
     {
         localDataManager.deleteSavedState();
-        sceneLoader.loadScene(OlgaSceneNumbers.MAIN_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.main);
     }
 }

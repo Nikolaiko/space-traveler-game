@@ -26,7 +26,7 @@ public class SocobanScene : MonoBehaviour
 
         fuelScene = GameObject.FindFirstObjectByType<FuelScene>();
 
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(OlgaSceneNumbers.FUEL_SOCOBAN_SCENE_ID));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneNumbers.FUEL_SOCOBAN_SCENE_ID));
         FuelStoreDoorType lastDoorType = fuelScene == null ? FuelStoreDoorType.normal : fuelScene.lastOpenedDoorType;
 
         levelBuilder.buildLevel(lastDoorType);

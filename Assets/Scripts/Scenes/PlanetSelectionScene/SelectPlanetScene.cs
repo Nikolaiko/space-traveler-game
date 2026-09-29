@@ -52,7 +52,7 @@ public class SelectPlanetScene : MonoBehaviour
                 distance,
                 obstacles)
             );
-            sceneLoader.loadScene(OlgaSceneNumbers.GAME_PROGRESS_SCENE_ID);
+            sceneLoader.loadScene(GameSceneType.gameProgress);
         }        
     }
 

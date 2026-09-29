@@ -7,22 +7,9 @@ public class UnitySceneLoader : SceneLoader
 {
     private AsyncOperation loadOperation = null;
 
-    private LocalDataManager dataManager;
-
-    public UnitySceneLoader(LocalDataManager dataManager)
-    {
-        this.dataManager = dataManager;
-    }
-
     public void loadScene(GameSceneType sceneType)
     {
-        GameArtType gameArtType = dataManager.getArtType();
-        loadScene(resolveArtTypeAndSceneType(gameArtType, sceneType));
-    }
-
-    public void loadScene(int sceneNumber)
-    {
-        SceneManager.LoadScene(sceneNumber);
+        SceneManager.LoadScene(SceneNumbers.sceneNumberFromSceneType(sceneType));
     }
 
     public void loadSceneAsyncAdditive(int sceneNumber, Action completion, CoroutineScope scope)
@@ -62,18 +49,5 @@ public class UnitySceneLoader : SceneLoader
 
         loadOperation = null;
         completion();
-    }
-
-    private int resolveArtTypeAndSceneType(GameArtType artType, GameSceneType sceneType)
-    {
-        switch (artType)
-        {
-            case GameArtType.sofyaArt:
-                return SofiaSceneNumbers.sceneNumberFromSceneType(sceneType);
-            case GameArtType.olgaArt:
-                return OlgaSceneNumbers.sceneNumberFromSceneType(sceneType);
-            default:
-                return OlgaSceneNumbers.sceneNumberFromSceneType(sceneType);
-        }
     }
 }

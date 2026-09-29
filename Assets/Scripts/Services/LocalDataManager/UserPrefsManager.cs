@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -6,16 +5,7 @@ public class UserPrefsManager : LocalDataManager
 {
     private static string gameStateKeyName = "space_quest_state";
     private static string tipsStateKeyName = "space_quest_tips";
-    private static string artTypeKeyName = "art_type";
     private static string userSettingsKeyName = "user_settings";
-
-    public GameArtType getArtType() {
-        if (PlayerPrefs.HasKey(artTypeKeyName)
-            && Enum.TryParse(PlayerPrefs.GetString(artTypeKeyName), out GameArtType artType)) {
-            return artType;
-        }
-        return GameArtType.olgaArt;
-    }
 
     public SpaceShipState? getSavedState() {
         return loadJson<SpaceShipState>(gameStateKeyName);
@@ -37,11 +27,6 @@ public class UserPrefsManager : LocalDataManager
 
     public void saveUserSettings(UserSettings userSettings) {
         saveJson(userSettingsKeyName, userSettings);
-    }
-
-    public void saveGameArtType(GameArtType gameArtType) {
-        PlayerPrefs.SetString(artTypeKeyName, gameArtType.ToString());
-        PlayerPrefs.Save();
     }
 
     public void saveGameState(SpaceShipState state) {

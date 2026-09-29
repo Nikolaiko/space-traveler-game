@@ -5,7 +5,6 @@ public enum GameSceneType {
     fuel,
     fuelSocoban,
     food,
-    hull,
     success,
     fail,
     planeSelect,

@@ -23,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene2048.unity
     guid: 98be90fcfc343a441b8a244a24310bde
-  - enabled: 0
-    path: Assets/Scenes/HullScene.unity
-    guid: ca760f2889eac40e99e379b763125da2
   - enabled: 1
     path: Assets/Scenes/FailLaunchScene.unity
     guid: dfbe5877d75574f4cbe13af332f7828a
@@ -41,14 +38,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FuelScene/Bypass/BypassSchemePairs.unity
     guid: a7c4e893ec5eb4107a7d75d6c670d3db
-  - enabled: 0
-    path: Assets/Scenes/SofiaScenes/MainMenuScene_1.unity
-    guid: 3a13771736c5e4cf4b3a5f53c50bb5fa
-  - enabled: 0
-    path: Assets/Scenes/SofiaScenes/StoryScene_1.unity
-    guid: 4b1372c06c7324424a33ebf5d79258a1
-  - enabled: 0
-    path: Assets/Scenes/SofiaScenes/PlanetSelectScene_1.unity
-    guid: c224738fd3ceb43858780b0c2e43db26
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

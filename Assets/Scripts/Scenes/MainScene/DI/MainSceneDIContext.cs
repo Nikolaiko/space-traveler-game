@@ -1,12 +1,12 @@
 using Zenject;
 
-public class OlgaMainSceneDIContext : MonoInstaller
+public class MainSceneDIContext : MonoInstaller
 {
     public override void InstallBindings()
     {
         Container
             .Bind<MainSceneUI>()
-            .To<OlgaMainScreenUI>()
+            .To<MainMenuScreenUI>()
             .FromComponentInHierarchy()
             .AsTransient();
     }

@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void looseGame() {
-        sceneLoader.loadScene(OlgaSceneNumbers.GAME_PROGRESS_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.gameProgress);
     }
 
     private void winGame() {
-        sceneLoader.loadScene(OlgaSceneNumbers.GAME_PROGRESS_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.gameProgress);
     }
 
     private void completeGame(FoodCollectionGamePoleState gamePoleState) {

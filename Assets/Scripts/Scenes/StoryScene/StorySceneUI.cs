@@ -14,6 +14,6 @@ public class StorySceneUI : MonoBehaviour
     }
 
     public void onSkipStory() {        
-        sceneLoader.loadScene(OlgaSceneNumbers.SELECT_PLANET_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.planeSelect);
     }
 }

@@ -19,6 +19,6 @@ public class SuccessLaunchScene : MonoBehaviour
     public void toMainMenu()
     {
         localDataManager.deleteSavedState();
-        sceneLoader.loadScene(OlgaSceneNumbers.MAIN_SCENE_ID);
+        sceneLoader.loadScene(GameSceneType.main);
     }
 }
