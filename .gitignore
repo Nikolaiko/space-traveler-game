@@ -87,3 +87,14 @@ crashlytics-build.properties
 
 BB.zip
 BB/
+
+# Сгенерированные IDE/Unity файлы
+*.slnx
+/[Uu][Ii][Ee]lements[Ss]chema/
+UpgradeLog*.htm
+
+# Локальные сборки
+/[Bb]uild_*/
+
+# macOS
+.DS_Store
