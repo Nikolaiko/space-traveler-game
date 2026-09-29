@@ -2878,46 +2878,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: foodButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: fuelButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: launchButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: fuelTextField
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: shipBodyButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: neededFoodTextField
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: weightFoodTextField
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: neededArmorTextField
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: weightArmorTextField
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873745734016738503, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
-      propertyPath: spaceShipProgressObject
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4484868228968134569, guid: 3e87e2b382dfd44dbbf97cd80b2c54cd, type: 3}
       propertyPath: m_Name
       value: GameProgressScene
