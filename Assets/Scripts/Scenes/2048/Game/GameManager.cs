@@ -6,9 +6,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private readonly float distance = 1.0f;
-    private readonly int zIndex = 0;
-
     [Inject]
     private SceneLoader sceneLoader;
 
@@ -41,8 +38,6 @@ public class GameManager : MonoBehaviour
         initialize();
 
         inputDetector = GetComponent<IInputDetector>();
-
-        string x = Utilities.showMatrixOnConsole(matrix);
 
         winScreen.onClick = winGame;
         looseScreen.onClick = looseGame;
