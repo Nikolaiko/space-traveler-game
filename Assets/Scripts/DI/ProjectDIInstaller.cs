@@ -9,20 +9,22 @@ public class ProjectDIInstaller : MonoInstaller
             .To<UserPrefsManager>()
             .AsSingle();
 
-        // Container            
-        //     .Bind<TipsManager>()
-        //     .To<GameTipsManager>() 
-        //     .AsSingle();
-
         Container
             .Bind<ParametersService>()
             .To<GameParametersService>() 
             .AsSingle();
 
+#if UNITY_EDITOR
         Container
             .Bind<TipsManager>()
-            .To<DebugTipsManager>() 
+            .To<DebugTipsManager>()
             .AsSingle();
+#else
+        Container
+            .Bind<TipsManager>()
+            .To<GameTipsManager>()
+            .AsSingle();
+#endif
 
         Container
             .Bind<SceneLoader>()
