@@ -44,13 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68770476cf0e84793bb4947419b61e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipBodyButton: {fileID: 0}
-  foodButton: {fileID: 0}
-  fuelButton: {fileID: 0}
-  launchButton: {fileID: 0}
-  spaceShipProgressObject: {fileID: 0}
-  neededArmorTextField: {fileID: 0}
-  weightArmorTextField: {fileID: 0}
-  neededFoodTextField: {fileID: 0}
-  weightFoodTextField: {fileID: 0}
-  fuelTextField: {fileID: 0}

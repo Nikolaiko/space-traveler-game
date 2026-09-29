@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     [Inject]
     private FoodCollectUI sceneUI;
 
-    private GameStateManager spaceShipProgress = new GameStateManager();
     private IInputDetector inputDetector;
     private FoodCollectionGameState gameState = FoodCollectionGameState.Playing;
     private ItemArray matrix;
