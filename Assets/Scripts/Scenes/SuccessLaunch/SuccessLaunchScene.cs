@@ -1,10 +1,24 @@
 using UnityEngine;
+using Zenject;
 
 public class SuccessLaunchScene : MonoBehaviour
 {
-    private UnitySceneLoader sceneLoader = new UnitySceneLoader(null);
+    [Inject]
+    private SceneLoader sceneLoader;
 
-    public void toMainMenu() {
+    [Inject]
+    private LocalDataManager localDataManager;
+
+    public StoryUIScreen storyScreen;
+
+    public void Awake()
+    {
+        storyScreen.setCloseCallback(toMainMenu);
+    }
+
+    public void toMainMenu()
+    {
+        localDataManager.deleteSavedState();
         sceneLoader.loadScene(OlgaSceneNumbers.MAIN_SCENE_ID);
     }
 }

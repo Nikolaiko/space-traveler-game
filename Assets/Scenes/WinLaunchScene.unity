@@ -1080,6 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6e975e4d9634fa7b9c19bb67c3baed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SuccessLaunchScene
+  storyScreen: {fileID: 877189148}
 --- !u!4 &1432153998
 Transform:
   m_ObjectHideFlags: 0
@@ -1178,7 +1179,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 877189148}
         m_TargetAssemblyTypeName: StoryWithTextUIScreen, Assembly-CSharp
         m_MethodName: onContinue
         m_Mode: 1
