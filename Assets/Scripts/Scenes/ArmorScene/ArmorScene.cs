@@ -19,15 +19,20 @@ public class ArmorScene : MonoBehaviour
     private void finishCollecting() {
         SpaceShipState? shipState = localDataManager.getSavedState();
         if (shipState.HasValue) {
-            // Временный фиксированный результат, пока нет самой игры:
-            // ровно нужная броня стальными листами, у них вес равен броне.
-            int armor = shipState.Value.armorNeeded ?? 0;
-            localDataManager.saveGameState(shipState.Value.copy(
-                armorCollected: armor,
-                armorWeight: armor
-            ));
+            ArmorLoot loot = temporaryLoot(shipState.Value.armorNeeded ?? 0);
+            localDataManager.saveGameState(loot.applyTo(shipState.Value));
         }
 
         sceneLoader.loadScene(GameSceneType.gameProgress);
+    }
+
+    // Временный фиксированный результат, пока нет самой игры:
+    // стальные листы, пока не наберётся нужная броня
+    private ArmorLoot temporaryLoot(int armorNeeded) {
+        ArmorLoot loot = new ArmorLoot();
+        while (loot.armor < armorNeeded) {
+            loot.add(ScrapType.steel);
+        }
+        return loot;
     }
 }
