@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -12,8 +13,56 @@ public class ArmorScene : MonoBehaviour
     [Inject]
     private SceneLoader sceneLoader;
 
+    [Inject]
+    private PlanetsInfoLoader planetsInfoLoader;
+
+    public ScrapConveyor conveyor;
+
+    private ArmorRound round;
+
     public void Awake() {
         sceneUI.onDoneButtonClick += finishCollecting;
+    }
+
+    public void Start() {
+        SpaceShipState? shipState = localDataManager.getSavedState();
+        if (!shipState.HasValue) {
+            Debug.LogWarning("ArmorScene: no saved ship state, returning to game progress");
+            sceneLoader.loadScene(GameSceneType.gameProgress);
+            return;
+        }
+
+        round = new ArmorRound(
+            ArmorCollectionConsts.roundDuration,
+            ArmorCollectionConsts.beltStartSpeed,
+            ArmorCollectionConsts.beltEndSpeed
+        );
+        round.onFinished += finishRound;
+
+        int obstacles = planetObstacles(shipState.Value.planetType);
+        conveyor.startBelt(new ScrapBag(
+            ArmorCollectionConsts.scrapBagContents(obstacles),
+            ArmorCollectionConsts.maxSameTypeInRow,
+            new System.Random()
+        ));
+        conveyor.speed = round.beltSpeed;
+        sceneUI.updateTimeLeft(round.timeLeft);
+    }
+
+    public void Update() {
+        if (round == null || round.finished) {
+            return;
+        }
+
+        round.tick(Time.deltaTime);
+        conveyor.speed = round.beltSpeed;
+        sceneUI.updateTimeLeft(round.timeLeft);
+    }
+
+    // Время вышло: лента встаёт, добыча раунда переходит на экран итога (#42)
+    private void finishRound(ArmorLoot loot) {
+        conveyor.stopBelt();
+        sceneUI.showTimeIsUp();
     }
 
     private void finishCollecting() {
@@ -34,5 +83,12 @@ public class ArmorScene : MonoBehaviour
             loot.add(ScrapType.steel);
         }
         return loot;
+    }
+
+    private int planetObstacles(DestinationPlanetType planetType) {
+        return planetsInfoLoader.loadPlanetsInfo()
+            .Where(value => value.planetType == planetType)
+            .First()
+            .obstacles;
     }
 }

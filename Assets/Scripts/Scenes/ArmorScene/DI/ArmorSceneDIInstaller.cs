@@ -8,5 +8,10 @@ public class ArmorSceneDIInstaller : MonoInstaller
             .To<ArmorUI>()
             .FromComponentInHierarchy()
             .AsTransient();
+
+        Container
+            .Bind<PlanetsInfoLoader>()
+            .To<PlanetsInfoInResourcesLoader>()
+            .AsSingle();
     }
 }
