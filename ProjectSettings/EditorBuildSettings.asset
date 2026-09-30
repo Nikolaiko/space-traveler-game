@@ -38,5 +38,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FuelScene/Bypass/BypassSchemePairs.unity
     guid: a7c4e893ec5eb4107a7d75d6c670d3db
+  - enabled: 1
+    path: Assets/Scenes/ArmorScene.unity
+    guid: 52ca1a0997fd54e22918f0878de8b987
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

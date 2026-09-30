@@ -12,6 +12,7 @@ public class SceneNumbers
     public static int SELECT_PLANET_SCENE_ID = 8;
     public static int BYPASS_HACKING_SCENE_ID = 9;
     public static int BYPASS_SCHEME_PAIRS_SCENE_ID = 10;
+    public static int ARMOR_SCENE_ID = 11;
 
     public static int sceneNumberFromSceneType(GameSceneType sceneType)
     {
@@ -39,6 +40,8 @@ public class SceneNumbers
                 return SUCCESS_SCENE_ID;
             case GameSceneType.fail:
                 return FAIL_SCENE_ID;
+            case GameSceneType.armor:
+                return ARMOR_SCENE_ID;
             default:
                 return -1;
         }

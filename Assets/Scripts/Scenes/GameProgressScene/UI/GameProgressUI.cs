@@ -19,11 +19,9 @@ public class GameProgressUI : MonoBehaviour
     public Action onFoodButtonTap;
     public Action onShipParameterClose;
     public Action onShipParameterUpdateValue;
-    public Action onBannerCloseButtonTap;
 
     #endregion
     public CalculateScreenUI calculateScreen;
-    public BasicUIScreen armorDevelopmentBanner;
 
     #region UI Elements
 
@@ -44,7 +42,6 @@ public class GameProgressUI : MonoBehaviour
         tipsScreenUIManager.onTipScreenClosed = tipScreenClosed;
         calculateScreen.onParametersScreenClosed = hideShipParametersScreen;
         calculateScreen.onParametersScreenUpdateValue = updateShipParameterScreen;
-        armorDevelopmentBanner.onCloseScreen = onArmorDevelopmentBannerClose;
 
         SpaceShipState? state = dataManager.getSavedState();
         if (state.HasValue)
@@ -55,10 +52,6 @@ public class GameProgressUI : MonoBehaviour
 
     public void showTip(GameTipType tipType) {
         tipsScreenUIManager.showTip(tipType);  
-    }
-
-    public void showArmorDevelopmentBanner() {
-        armorDevelopmentBanner.show();
     }
 
     public void showShipParametersScreen(SpaceShipState shipState) {
@@ -130,9 +123,5 @@ public class GameProgressUI : MonoBehaviour
 
     private void tipScreenClosed(GameTipType tipType) {
         onTipScreenClosed(tipType);
-    }
-
-    private void onArmorDevelopmentBannerClose() {        
-        armorDevelopmentBanner.hide();
     }
 }

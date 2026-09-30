@@ -57,13 +57,10 @@ public class SelectPlanetScene : MonoBehaviour
     }
 
     private SpaceShipState buildInitialSpaceShipState(DestinationPlanetType planetType, int distance, int obstacles) {
-        int armorNeeded = calculator.calculateBaseArmorNeededForDistance(distance, obstacles);
         return new SpaceShipState(
             planetType: selectedPlanetInfo.Value.planetType,
-            armorNeeded: armorNeeded,
-            foodNeeded: calculator.calculateBaseFoodNeededForDistance(distance),
-            armorCollected: armorNeeded,
-            armorWeight: armorNeeded
+            armorNeeded: calculator.calculateBaseArmorNeededForDistance(distance, obstacles),
+            foodNeeded: calculator.calculateBaseFoodNeededForDistance(distance)
         );
     }
 }
