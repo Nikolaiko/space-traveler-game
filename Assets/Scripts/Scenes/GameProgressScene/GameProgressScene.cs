@@ -68,8 +68,10 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
         SpaceShipState? shipState = localDataManager.getSavedState();
         if (shipState.HasValue) {
             try {
-                int fuelNeeded = shipState.Value.fuelNeeded ?? int.MaxValue;
-                if (fuelNeeded <= shipState.Value.fuelCollected) {                    
+                // Сверяем с формулой, а не с введённым игроком значением:
+                // если игрок ошибся в расчёте и собрал меньше, корабль не долетит.
+                int fuelNeeded = calculateRequiredFuel(shipState.Value);
+                if (fuelNeeded <= shipState.Value.fuelCollected) {
                     sceneLoader.loadScene(GameSceneType.success);
                 } else {
                     sceneLoader.loadScene(GameSceneType.fail);
@@ -120,6 +122,19 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
 
     private void goToScene(GameSceneType sceneType) {
         sceneLoader.loadScene(sceneType);
+    }
+
+    private int calculateRequiredFuel(SpaceShipState state) {
+        DestinationPlanetInfo info = planetsInfoLoader.loadPlanetsInfo().Where(
+            value => value.planetType == state.planetType
+        ).First();
+
+        return parametersCalculator.calculateFuelNeededForDistance(
+            info.distance,
+            info.obstacles,
+            state.foodWeight,
+            state.armorWeight
+        );
     }
 
     private void setComponentValuesFromState(SpaceShipState state) {        
