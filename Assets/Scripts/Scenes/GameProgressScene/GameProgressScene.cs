@@ -53,7 +53,7 @@ public class GameProgressScene : MonoBehaviour, CoroutineScope
     #region Buttons Callbacks
 
     public void startCollectingArmor() {
-        gameProgressUI.showArmorDevelopmentBanner();
+        goToScene(GameSceneType.armor);
     }
 
     public void startCollectingFood() {

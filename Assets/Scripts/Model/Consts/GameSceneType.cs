@@ -9,5 +9,6 @@ public enum GameSceneType {
     fail,
     planeSelect,
     bypassHacking,
-    bypassPairs
+    bypassPairs,
+    armor
 }
